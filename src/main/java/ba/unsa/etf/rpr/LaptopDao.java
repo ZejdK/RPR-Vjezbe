@@ -7,8 +7,8 @@ public interface LaptopDao {
     void dodajLaptopUListu(Laptop laptop);
     void dodajLaptopUFile(Laptop laptop);
 
-    void getLaptop(String procesor);
+    Laptop getLaptop(String procesor) throws NeodgovarajuciProcesorException;
 
     void napuniListu(ArrayList<Laptop> laptopi);
-    void vratiPodatkeIzDatoteke();
+    ArrayList<Laptop> vratiPodatkeIzDatoteke();
 }
