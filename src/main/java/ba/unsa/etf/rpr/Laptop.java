@@ -14,7 +14,18 @@ public class Laptop implements Serializable {
     private String grafickaKartica;
     private double velicinaEkrana;
 
-    // da li treba navesti konstruktor bez parametera, s obzirom da on vec biva generisan defaultno
+
+
+    // da li treba navesti konstruktor bez parametera, s obzirom da on vec biva generisan
+
+    @Override
+    public String toString() {
+
+        return "Laptop: " + getBrend() + " " + getModel() + " " + getCijena() + " KM | "
+                + "RAM " + getRam() + "GB | HDD " + getHdd() + "GB | SSD " + getSsd()
+                + "GB | CPU " + getProcesor() + " | GPU " + getGrafickaKartica()
+                + " | Ekran " + getVelicinaEkrana() + "\"";
+    }
 
 
 
