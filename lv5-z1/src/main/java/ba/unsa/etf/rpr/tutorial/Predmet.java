@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorial;
 
-public class Predmet {
+public class Predmet implements Introducable {
 
     private String naziv;
     private String opis;
@@ -13,6 +13,10 @@ public class Predmet {
         this.opis = opis;
     }
 
+    @Override
+    public String predstavi() {
+        return "Predmet " + this.getNaziv() + ": " + this.getOpis();
+    }
 
 
     public String getNaziv() {
