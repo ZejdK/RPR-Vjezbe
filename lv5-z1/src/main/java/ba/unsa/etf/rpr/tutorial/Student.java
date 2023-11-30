@@ -7,6 +7,15 @@ public class Student extends LicneInformacije {
 
 
 
+    public Student(String ime, String prezime, String godinaStudija, String brojIndexa) {
+
+        super(ime, prezime);
+        this.godinaStudija = godinaStudija;
+        this.brojIndexa = brojIndexa;
+    }
+
+
+
     public String getGodinaStudija() {
         return godinaStudija;
     }
