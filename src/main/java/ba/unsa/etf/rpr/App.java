@@ -66,7 +66,9 @@ public class App
 
     public static void main( String[] args ) {
 
-        //
+        IstestirajSerializable();
+        IstestirajXML();
+        IstestirajJSON();
     }
 
     public static void IspisiLaptope(ArrayList<Laptop> laptopi) {
