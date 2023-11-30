@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorial;
 
-public class Nastavnik extends LicneInformacije {
+public class Nastavnik extends Osoba {
 
     private String titula;
 

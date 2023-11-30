@@ -1,13 +1,13 @@
 package ba.unsa.etf.rpr.tutorial;
 
-public class LicneInformacije {
+public class Osoba {
 
     private String ime;
     private String prezime;
 
 
 
-    public LicneInformacije(String ime, String prezime) {
+    public Osoba(String ime, String prezime) {
 
         this.ime = ime;
         this.prezime = prezime;
