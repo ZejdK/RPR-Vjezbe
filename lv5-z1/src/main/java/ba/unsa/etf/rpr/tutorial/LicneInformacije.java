@@ -5,6 +5,16 @@ public class LicneInformacije {
     private String ime;
     private String prezime;
 
+
+
+    public LicneInformacije(String ime, String prezime) {
+
+        this.ime = ime;
+        this.prezime = prezime;
+    }
+
+
+
     public String getIme() {
         return ime;
     }
