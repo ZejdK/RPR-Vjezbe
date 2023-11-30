@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.tutorial;
 
+import java.util.ArrayList;
+
 /**
  * Hello world!
  *
@@ -31,9 +33,37 @@ public class App
         }
     }
 
+    private static void IstestirajKolekcijuPoruka() {
+
+        ArrayList<Introducable> spisak = new ArrayList<Introducable>();
+
+        spisak.add(new Osoba("Mujo", "Mujovski"));
+        spisak.add(new Osoba("Haso", "Hasetic"));
+        spisak.add(new Nastavnik("Fata", "Fatimic", "Dr"));
+        spisak.add(new Nastavnik("Hljeb", "Kruhovic", "Vanr Dr"));
+        spisak.add(new Student("Huse", "Husini", "1", "27940"));
+        spisak.add(new Student("Suljo", "Suljagic", "1", "27999"));
+        spisak.add(new Student("Suljo", "Sinonimic", "1", "28034"));
+        spisak.add(new Student("Hasan", "Hasanic", "2", "27744"));
+        spisak.add(new Student("Husein", "Huseinovic Husovski III", "3", "25755"));
+        spisak.add(new Predmet("Matematika I", "kompleksni brojeve i trigonometrija"));
+        spisak.add(new Predmet("Matematika II", "nizovi i redovi"));
+        spisak.add(new Predmet("Bosanski VII", "padezi i promjena kroz glagolska vremena"));
+        spisak.add(new Predmet("Likovno", "crtanje i bojenje"));
+
+        KolekcijaPoruka p = new KolekcijaPoruka(spisak);
+
+        for (String predstavljanje : p.getPoruke()) {
+
+            System.out.println(predstavljanje);
+        }
+    }
+
     public static void main( String[] args )
     {
 
         IstestirajLicneInfo();
+        System.out.println("-------");
+        IstestirajKolekcijuPoruka();
     }
 }
