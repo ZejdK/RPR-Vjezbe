@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorial;
 
-public class Nastavnik extends Osoba {
+public class Nastavnik extends Osoba implements Introducable {
 
     private String titula;
 
@@ -10,6 +10,12 @@ public class Nastavnik extends Osoba {
 
         super(ime, prezime);
         this.titula = titula;
+    }
+
+    @Override
+    public String predstavi() {
+
+        return this.getTitula() + super.predstavi() + " je nastavnik";
     }
 
 

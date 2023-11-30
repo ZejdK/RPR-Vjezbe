@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorial;
 
-public class Osoba {
+public class Osoba implements Introducable {
 
     private String ime;
     private String prezime;
@@ -11,6 +11,12 @@ public class Osoba {
 
         this.ime = ime;
         this.prezime = prezime;
+    }
+
+    @Override
+    public String predstavi() {
+
+        return "Osoba " + this.getIme() + " " + this.getPrezime();
     }
 
 

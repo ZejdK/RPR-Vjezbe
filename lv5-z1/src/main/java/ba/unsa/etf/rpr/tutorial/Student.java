@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorial;
 
-public class Student extends Osoba {
+public class Student extends Osoba implements Introducable {
 
     private String godinaStudija;
     private String brojIndexa;
@@ -12,6 +12,13 @@ public class Student extends Osoba {
         super(ime, prezime);
         this.godinaStudija = godinaStudija;
         this.brojIndexa = brojIndexa;
+    }
+
+    @Override
+    public String predstavi() {
+
+        return super.predstavi() + " je student sa indeksom " + this.getBrojIndexa() + " na "
+                + this.getGodinaStudija() + ". godini studija";
     }
 
 
