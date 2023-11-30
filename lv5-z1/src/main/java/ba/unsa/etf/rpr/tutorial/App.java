@@ -6,8 +6,34 @@ package ba.unsa.etf.rpr.tutorial;
  */
 public class App 
 {
+    private static void IstestirajLicneInfo() {
+
+        Osoba spisak[] = new Osoba[6];
+        spisak[0] = new Student("Studirac", "Studirovski", "3", "28658");
+        spisak[1] = new Nastavnik("Imenko", "Imenkovic", "klaun");
+        spisak[2] = new Nastavnik("Mujesira", "Mujic", "Doktor");
+        spisak[3] = new Student("Mujo", "Hasic", "2", "28994");
+        spisak[4] = new Student("Suljo", "Suljic", "1", "29384");
+        spisak[5] = new Student("Haso", "Hasovski", "2", "28934");
+
+        for (Osoba l : spisak) {
+
+            if (l instanceof Student) {
+
+                Student s = (Student) l;
+                System.out.println("Osoba je student " + s.getIme() + " " + s.getPrezime() + " na "
+                                    + s.getGodinaStudija() + ". godini studija sa indeksom " + s.getBrojIndexa());
+            } else if (l instanceof Nastavnik) {
+
+                Nastavnik n = (Nastavnik) l;
+                System.out.println("Osoba je nastavnik " + n.getTitula() + " " + n.getIme() + " " + n.getPrezime());
+            }
+        }
+    }
+
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+
+        IstestirajLicneInfo();
     }
 }
