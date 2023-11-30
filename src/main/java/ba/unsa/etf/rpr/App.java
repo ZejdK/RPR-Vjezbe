@@ -32,6 +32,27 @@ public class App
     public static void IstestirajSerializable() {
 
         LaptopDaoSerializableFile l = new LaptopDaoSerializableFile();
+
+        System.out.println("A");
+
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        IspisiLaptope(l.vratiPodatkeIzDatoteke());
+
+        System.out.println("B");
+
+        l.dodajLaptopUFile(IzmisliLaptop());
+        IspisiLaptope(l.vratiPodatkeIzDatoteke());
+
+        System.out.println("C");
+
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        IspisiLaptope(l.vratiPodatkeIzDatoteke());
+
+        System.out.println("D");
     }
 
     public static void IstestirajXML() {
