@@ -2,10 +2,6 @@ package ba.unsa.etf.rpr.tutorial;
 
 import java.util.ArrayList;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     private static void IstestirajLicneInfo() {
