@@ -95,10 +95,10 @@ public class App
 
         Student[] studenti = {
 
-                new Student("Suljo", "Suljic", "1", "222222"),
-                new Student("Suljo2", "Suljic3", "1", "222223"),
-                new Student("Suljo223", "Suljic223", "1", "222224"),
-                new Student("Suljo14", "Suljic14", "1", "222225")
+            new Student("Suljo", "Suljic", "1", "222222"),
+            new Student("Suljo2", "Suljic3", "1", "222223"),
+            new Student("Suljo223", "Suljic223", "1", "222224"),
+            new Student("Suljo14", "Suljic14", "1", "222225")
         };
 
         for (Student s : studenti)
@@ -115,6 +115,25 @@ public class App
         }
     }
 
+    private static void IstestirajKolekcijuImenaIPrezimena() {
+
+        KolekcijaImenaIPrezimena k = new KolekcijaImenaIPrezimena();
+
+        Student[] studenti = {
+
+                new Student("Suljo234", "Suljic33245", "1", "222222"),
+                new Student("Suljo2343242", "Suljic32444344", "1", "222223"),
+                new Student("Suljo243323", "Suljic223", "1", "222224"),
+                new Student("Suljo124", "Suljic14344", "1", "222225")
+        };
+
+        for (Student s : studenti)
+            k.dodajImeIPrezime(s.getIme(), s.getPrezime());
+
+        int i = k.getIndexNajduzegPara();
+        System.out.println("Najduzi par je " + k.getImeIPrezime(i));
+    }
+
     public static void main( String[] args )
     {
         IstestirajLicneInfo();
@@ -123,5 +142,6 @@ public class App
         IstestirajOcijenjivanjePredmeta();
         IstestirajOcijenjivanjeNastavnika();
         IstestirajKolekcijuImena();
+        IstestirajKolekcijuImenaIPrezimena();
     }
 }
