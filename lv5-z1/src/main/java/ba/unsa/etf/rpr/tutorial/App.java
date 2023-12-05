@@ -6,7 +6,7 @@ public class App
 {
     private static void IstestirajLicneInfo() {
 
-        Osoba spisak[] = new Osoba[6];
+        Osoba[] spisak = new Osoba[6];
         spisak[0] = new Student("Studirac", "Studirovski", "3", "28658");
         spisak[1] = new Nastavnik("Imenko", "Imenkovic", "klaun");
         spisak[2] = new Nastavnik("Mujesira", "Mujic", "Doktor");
@@ -31,7 +31,7 @@ public class App
 
     private static void IstestirajKolekcijuPoruka() {
 
-        ArrayList<Introducable> spisak = new ArrayList<Introducable>();
+        ArrayList<Introducable> spisak = new ArrayList<>();
 
         spisak.add(new Osoba("Mujo", "Mujovski"));
         spisak.add(new Osoba("Haso", "Hasetic"));
@@ -55,11 +55,73 @@ public class App
         }
     }
 
+    private static void IstestirajOcijenjivanjeNastavnika() {
+
+        Nastavnik nastavnik = new Nastavnik("Mujo", "Mujic", "prof");
+
+        Student s1 = new Student("Suljo", "Suljic", "1", "222222");
+        Student s2 = new Student("Suljo2", "Suljic3", "1", "222223");
+        Student s3 = new Student("Suljo3", "Suljic3", "1", "222224");
+
+        nastavnik.ocijeni(s1, 6);
+        nastavnik.ocijeni(s2, 8);
+        nastavnik.ocijeni(s3, 9);
+
+        nastavnik.predstavi();
+
+        // mozda jos implementirati neke info o tome da se vidi koja je ocjena nastavnika?
+    }
+
+    private static void IstestirajOcijenjivanjePredmeta() {
+
+        Predmet likovno = new Predmet("Likovno", "saranje");
+
+        Student s1 = new Student("Suljo", "Suljic", "1", "222222");
+        Student s2 = new Student("Suljo2", "Suljic3", "1", "222223");
+        Student s3 = new Student("Suljo3", "Suljic3", "1", "222224");
+
+        likovno.ocijeni(s1, 6);
+        likovno.ocijeni(s2, 8);
+        likovno.ocijeni(s3, 9);
+
+        likovno.predstavi();
+
+        // mozda jos implementirati neke info o tome da se vidi koja je ocjena predmeta
+    }
+
+    private static void IstestirajKolekcijuImena() {
+
+        KolekcijaImena imena = new KolekcijaImena();
+
+        Student[] studenti = {
+
+                new Student("Suljo", "Suljic", "1", "222222"),
+                new Student("Suljo2", "Suljic3", "1", "222223"),
+                new Student("Suljo223", "Suljic223", "1", "222224"),
+                new Student("Suljo14", "Suljic14", "1", "222225")
+        };
+
+        for (Student s : studenti)
+            imena.dodajIme(s.getIme() + " " + s.getPrezime());
+
+        try {
+
+            Pobjednik pobjednik = new Pobjednik(imena);
+            System.out.println("Pobjednik je " + pobjednik.getIme() + " " +  pobjednik.getPrezime() + " sa " + pobjednik.getBrojZnakova() + " znakova");
+
+        } catch (Exception e) {
+
+            System.out.println("Uhvacen izuzetak: " + e.getMessage());
+        }
+    }
+
     public static void main( String[] args )
     {
-
         IstestirajLicneInfo();
         System.out.println("-------");
         IstestirajKolekcijuPoruka();
+        IstestirajOcijenjivanjePredmeta();
+        IstestirajOcijenjivanjeNastavnika();
+        IstestirajKolekcijuImena();
     }
 }
