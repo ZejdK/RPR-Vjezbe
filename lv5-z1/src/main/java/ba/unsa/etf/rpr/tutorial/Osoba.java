@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorial;
 
-public class Osoba implements Introducable {
+public class Osoba implements Introducable { // osoba je zapravo klasa LicneInformacije
 
     private String ime;
     private String prezime;

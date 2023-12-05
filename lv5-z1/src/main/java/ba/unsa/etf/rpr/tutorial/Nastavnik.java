@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorial;
 
-public class Nastavnik extends Osoba implements Introducable {
+public class Nastavnik extends Osoba implements Introducable { // Nastavnik je klasa InformacijeONastavniku
 
     private String titula;
 
