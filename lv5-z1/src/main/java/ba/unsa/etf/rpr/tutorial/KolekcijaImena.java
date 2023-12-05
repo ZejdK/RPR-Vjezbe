@@ -24,4 +24,9 @@ public class KolekcijaImena {
 
         return najduzeIme;
     }
+
+    void dodajIme(String ime) {
+
+        imena.add(ime);
+    }
 }
