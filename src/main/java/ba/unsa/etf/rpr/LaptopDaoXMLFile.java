@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-import java.io.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -27,8 +27,6 @@ public class LaptopDaoXMLFile {
             System.out.println("Greska pri citanju datoteke `laptopi.xml`: " + e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
         }
     }
-
-
 
     public void dodajLaptopUListu(Laptop laptop) {
 
