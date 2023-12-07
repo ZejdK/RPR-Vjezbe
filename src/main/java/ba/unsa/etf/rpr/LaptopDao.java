@@ -10,5 +10,5 @@ public interface LaptopDao {
     Laptop getLaptop(String procesor) throws NeodgovarajuciProcesorException;
 
     void napuniListu(ArrayList<Laptop> laptopi);
-    ArrayList<Laptop> vratiPodatkeIzDatoteke();
+    LaptopLista vratiPodatkeIzDatoteke();
 }
