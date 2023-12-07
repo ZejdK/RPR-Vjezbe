@@ -1,7 +1,5 @@
 package ba.unsa.etf.rpr;
 
-import java.util.ArrayList;
-
 public class App
 {
     public static int DajRand(int m, int o) {
