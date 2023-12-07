@@ -7,13 +7,11 @@ import java.util.Arrays;
 public class LaptopDaoSerializableFile implements LaptopDao {
 
     private File file;
-    private ArrayList<Laptop> laptopi;
-
-
+    private final LaptopLista laptopi;
 
     public LaptopDaoSerializableFile() {
 
-        laptopi = new ArrayList<>();
+        laptopi = new LaptopLista();
 
         try {
 
@@ -32,18 +30,16 @@ public class LaptopDaoSerializableFile implements LaptopDao {
 
     public void dodajLaptopUListu(Laptop laptop) {
 
-        laptopi.add(laptop);
+        laptopi.dodaj(laptop);
     }
 
     public void dodajLaptopUFile(Laptop laptop) {
 
-        // konfuzna postavka, pretpostavljam da treba biti da su svi do sada laptopi prisutni u fajlu, a ne da se dopisuju jedan po jedan
-
         try {
 
-            ArrayList<Laptop> pohranjeniLaptopi = vratiPodatkeIzDatoteke();
+            LaptopLista pohranjeniLaptopi = vratiPodatkeIzDatoteke();
 
-            pohranjeniLaptopi.add(laptop);
+            pohranjeniLaptopi.dodaj(laptop);
 
             ObjectOutputStream izlaz = new ObjectOutputStream(new FileOutputStream(file));
             izlaz.writeObject(pohranjeniLaptopi);
@@ -56,34 +52,35 @@ public class LaptopDaoSerializableFile implements LaptopDao {
 
     public Laptop getLaptop(String procesor) throws NeodgovarajuciProcesorException {
 
-        for (Laptop l : laptopi)
-            if (procesor.equals(l.getProcesor()))
-                return l;
+        Laptop l = laptopi.pretrazi(procesor);
+
+        if (l != null)
+            return l;
 
         throw new NeodgovarajuciProcesorException("");
     }
 
     public void napuniListu(ArrayList<Laptop> laptopi) {
 
-        this.laptopi = laptopi; // postavka kaze 'dodjeljuje'
+        this.laptopi.setLaptopi(laptopi);
     }
 
-    public ArrayList<Laptop> vratiPodatkeIzDatoteke() {
+    public LaptopLista vratiPodatkeIzDatoteke() {
 
-        Object obj = null;
+        LaptopLista obj = null;
 
         try {
 
             ObjectInputStream ulaz = new ObjectInputStream(new FileInputStream(file));
-            obj = ulaz.readObject();
+            obj = (LaptopLista)ulaz.readObject();
+
+            if (obj != null)
+                return obj;
 
         } catch (Exception e) {
 
             System.out.println("Greska pri citanju datoteke `laptopi.dat`: " + e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
         }
-
-        if (obj instanceof ArrayList<?>)
-            return (ArrayList<Laptop>) obj;
 
         return null;
     }
