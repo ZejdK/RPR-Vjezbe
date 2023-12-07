@@ -91,12 +91,4 @@ public class App
         IstestirajXML();
         IstestirajJSON();
     }
-
-    public static void IspisiLaptope(ArrayList<Laptop> laptopi) {
-
-        for (Laptop l : laptopi) {
-
-            System.out.println(l);
-        }
-    }
 }
