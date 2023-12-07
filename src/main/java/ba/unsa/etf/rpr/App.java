@@ -37,12 +37,12 @@ public class App
 
         l.dodajLaptopUFile(IzmisliLaptop());
         l.dodajLaptopUFile(IzmisliLaptop());
-        IspisiLaptope(l.vratiPodatkeIzDatoteke());
+        l.vratiPodatkeIzDatoteke().ispisi();
 
         System.out.println("B");
 
         l.dodajLaptopUFile(IzmisliLaptop());
-        IspisiLaptope(l.vratiPodatkeIzDatoteke());
+        l.vratiPodatkeIzDatoteke().ispisi();
 
         System.out.println("C");
 
@@ -50,7 +50,7 @@ public class App
         l.dodajLaptopUFile(IzmisliLaptop());
         l.dodajLaptopUFile(IzmisliLaptop());
         l.dodajLaptopUFile(IzmisliLaptop());
-        IspisiLaptope(l.vratiPodatkeIzDatoteke());
+        l.vratiPodatkeIzDatoteke().ispisi();
 
         System.out.println("D");
     }
