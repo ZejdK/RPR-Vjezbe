@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class LaptopDaoXMLFile {
+public class LaptopDaoXMLFile implements LaptopDao {
 
     private File file;
     private final LaptopLista lista;
