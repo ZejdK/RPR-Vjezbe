@@ -17,7 +17,7 @@ public class LaptopDaoXMLFile {
 
         try {
 
-            file = new File("laptopi.xml");
+            file = new File("resursi/laptopi.xml");
 
             XmlMapper mapper = new XmlMapper();
             mapper.writeValue(file, lista);

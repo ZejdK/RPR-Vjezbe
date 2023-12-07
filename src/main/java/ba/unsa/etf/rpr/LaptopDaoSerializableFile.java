@@ -17,7 +17,7 @@ public class LaptopDaoSerializableFile implements LaptopDao {
 
         try {
 
-            file = new File("laptopi.dat");
+            file = new File("resursi/laptopi.dat");
 
             ObjectOutputStream izlaz = new ObjectOutputStream(new FileOutputStream(file));
             izlaz.writeObject(laptopi);
