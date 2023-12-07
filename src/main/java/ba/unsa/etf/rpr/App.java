@@ -81,6 +81,28 @@ public class App
 
     public static void IstestirajJSON() {
 
+        LaptopDaoJSONFile l = new LaptopDaoJSONFile();
+
+        System.out.println("A");
+
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.vratiPodatkeIzDatoteke().ispisi();
+
+        System.out.println("B");
+
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.vratiPodatkeIzDatoteke().ispisi();
+
+        System.out.println("C");
+
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.vratiPodatkeIzDatoteke().ispisi();
+
+        System.out.println("D");
     }
 
     public static void main( String[] args ) {
