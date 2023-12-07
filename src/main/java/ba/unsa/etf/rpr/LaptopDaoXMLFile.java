@@ -9,24 +9,18 @@ import java.util.Arrays;
 public class LaptopDaoXMLFile {
 
     private File file;
-    private ArrayList<Laptop> laptopi;
-
-
+    private final LaptopLista lista;
 
     public LaptopDaoXMLFile() {
 
-        laptopi = new ArrayList<>();
+        lista = new LaptopLista();
 
         try {
 
             file = new File("laptopi.xml");
 
             XmlMapper mapper = new XmlMapper();
-            mapper.writeValue(file, laptopi);
-
-            FileOutputStream fo = new FileOutputStream(file);
-            fo.write(xml.getBytes());
-            fo.close();
+            mapper.writeValue(file, lista);
 
         } catch (Exception e) {
 
@@ -38,19 +32,19 @@ public class LaptopDaoXMLFile {
 
     public void dodajLaptopUListu(Laptop laptop) {
 
-        laptopi.add(laptop);
+        lista.dodaj(laptop);
     }
 
     public void dodajLaptopUFile(Laptop laptop) {
 
         try {
 
-            ArrayList<Laptop> pohranjeniLaptopi = vratiPodatkeIzDatoteke();
+            LaptopLista pohranjeniLaptopi = vratiPodatkeIzDatoteke();
 
-            pohranjeniLaptopi.add(laptop);
+            pohranjeniLaptopi.dodaj(laptop);
 
             XmlMapper mapper = new XmlMapper();
-            mapper.writeValue(file, laptopi);
+            mapper.writeValue(file, pohranjeniLaptopi);
 
         } catch (Exception e) {
 
@@ -60,34 +54,35 @@ public class LaptopDaoXMLFile {
 
     public Laptop getLaptop(String procesor) throws NeodgovarajuciProcesorException {
 
-        for (Laptop l : laptopi)
-            if (procesor.equals(l.getProcesor()))
-                return l;
+        Laptop l = lista.pretrazi(procesor);
+
+        if (l != null)
+            return l;
 
         throw new NeodgovarajuciProcesorException("");
     }
 
     public void napuniListu(ArrayList<Laptop> laptopi) {
 
-        this.laptopi = laptopi;
+        this.lista.setLaptopi(laptopi);
     }
 
-    public ArrayList<Laptop> vratiPodatkeIzDatoteke() {
+    public LaptopLista vratiPodatkeIzDatoteke() {
 
-        Object obj = null;
+        LaptopLista obj = null;
 
         try {
 
             XmlMapper mapper = new XmlMapper();
-            laptopi = mapper.readValue(file, ArrayList.class);
+            obj = mapper.readValue(file, LaptopLista.class);
+
+            if (obj != null)
+                return obj;
 
         } catch (Exception e) {
 
             System.out.println("Greska pri citanju datoteke `laptopi.xml`: " + e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
         }
-
-        if (obj instanceof ArrayList<?>)
-            return (ArrayList<Laptop>) obj;
 
         return null;
     }
