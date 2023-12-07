@@ -58,6 +58,27 @@ public class App
     public static void IstestirajXML() {
 
         LaptopDaoXMLFile l = new LaptopDaoXMLFile();
+
+        System.out.println("A");
+
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.vratiPodatkeIzDatoteke().ispisi();
+
+        System.out.println("B");
+
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.vratiPodatkeIzDatoteke().ispisi();
+
+        System.out.println("C");
+
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.dodajLaptopUFile(IzmisliLaptop());
+        l.vratiPodatkeIzDatoteke().ispisi();
+
+        System.out.println("D");
     }
 
     public static void IstestirajJSON() {
